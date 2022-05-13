@@ -1,0 +1,5 @@
+FROM centos7
+RUN yum install -y epil-release
+RUN yum install -y nginx
+ENTRYPOINT systemctl start nginx && /bin/bash
+

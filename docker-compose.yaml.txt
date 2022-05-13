@@ -1,0 +1,28 @@
+version 3
+services:
+  nginx:
+    build:
+      context: .         #path of the dockerfile
+      dockerfile: dockerfile2
+      ports:
+        - "8000:80"
+
+dbmysql:
+    build:
+      context: .               #path of the dockerfile
+      dockerfile: dockerfile3
+      restart: always
+      environment:
+          - MYSQL_ROOT_PASSWORD=hello
+          - MYSQL_DATABASE=wordpress
+          - MYSQL_USER=user1
+          - MYSQL_PASSWORD=user1
+
+helloworld:
+ build:
+      context: .               #path of the dockerfile
+      dockerfile: dockerfile1
+      restart: always
+      command: echo "hello world"
+     
+
